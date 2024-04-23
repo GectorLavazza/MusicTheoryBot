@@ -30,3 +30,5 @@ You will get 5 audios with 4 options every. Try to choose the right option!
 *Btw my highest score is 5\5 (my lowest is 0\5)*
 
 #### Enjoy our bot!
+  
+Project deployed on https://www.pythonanywhere.com
