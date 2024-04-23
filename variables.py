@@ -1,6 +1,6 @@
 from markups import scale_markup, intervals_markup, chords_markup
 
-API_TOKEN = '7161683104:AAHqONitwtt3N4x2Wx-2MFMxC55f-d0ShVU'
+API_TOKEN = 'token'
 
 NOTES = ['C', 'C#\Db', 'D', 'D#\Eb', 'E', 'F',
          'F#\Gb', 'G', 'G#\Ab', 'A', 'A#\Bb', 'B\Cb']
