@@ -25,8 +25,6 @@ def get_scale(key, scale, notes=NOTES * 2, scales=SCALES):
         res.append(notes[next_note_index])
         current_index += step
 
-    res = add_roman(res)
-
     return res
 
 
@@ -53,8 +51,6 @@ def get_chord(root, chord, addition=0, notes=NOTES * 2,
         next_note_index = current_index + step
         res.append(notes[next_note_index])
         current_index += step
-
-    res = ' – '.join(res)
 
     return res
 

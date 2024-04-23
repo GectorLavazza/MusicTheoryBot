@@ -9,7 +9,7 @@ BLACK_KEY_WIDTH = 40
 BLACK_KEY_HEIGHT = ORIGINAL_IMAGE_HEIGHT * 0.6
 
 
-def draw_keyboard(notes_list):
+def draw_keyboard(user_id, notes_list):
     # Create a new image with white background
     image = Image.new("RGB",
                       (ORIGINAL_IMAGE_WIDTH * 2, ORIGINAL_IMAGE_HEIGHT * 2),
@@ -30,21 +30,27 @@ def draw_keyboard(notes_list):
             fill="black", outline="black")
 
     # Draw circles with note letters above the keys you choose
-    keys = {'C': 1, 'C#': 2, 'D': 2, 'D#': 3, 'E': 4, 'F': 5, 'F#': 6,
-            'G': 7, 'G#': 8, 'A': 9, 'A#': 10,
-            'B': 11}  # Map key positions to note letters
+    keys = {'C': 0, 'C#\\Db': 1, 'D': 2, 'D#\\Eb': 3, 'E': 4, 'F': 5, 'F#\\Gb': 6,
+            'G': 7, 'G#\\Ab': 8, 'A': 9, 'A#\\Bb': 10,
+            'B\\Cb': 11}  # Map key positions to note letters
 
     font_size = 30
     font = ImageFont.truetype("data/arial.ttf", font_size)
 
     previous_note = notes_list[0]
+    current_octave = 1
 
     for note in notes_list:
 
         key_pos = keys[note]
+        letter = note.split('\\')[0]
 
-        if keys[note] < keys[previous_note]:
-            key_pos += 12
+        # if keys[previous_note] + keys[note] > 12:
+        #     current_octave = 2
+
+        if keys[note] < keys[previous_note] or current_octave == 2:
+            current_octave = 2
+            key_pos += 14
 
         if '#' in note:
             x_center = key_pos // 2 * WHITE_KEY_WIDTH * 2 + BLACK_KEY_WIDTH * 4
@@ -53,23 +59,24 @@ def draw_keyboard(notes_list):
             draw.ellipse([x_center - circle_radius, y_center - circle_radius,
                           x_center + circle_radius, y_center + circle_radius],
                          outline="red", fill="red")
-            draw.text((x_center - 17, y_center - 16), note, fill="white",
+            draw.text((x_center - 17, y_center - 16), letter, fill="white",
                       font=font)
         else:
             x_center = (
-                                   key_pos + 1) // 2 * WHITE_KEY_WIDTH * 2 + WHITE_KEY_WIDTH
+                               key_pos + 1) // 2 * WHITE_KEY_WIDTH * 2 + WHITE_KEY_WIDTH
             y_center = ORIGINAL_IMAGE_HEIGHT * 0.75 * 2
             circle_radius = 30
             draw.ellipse([x_center - circle_radius, y_center - circle_radius,
                           x_center + circle_radius, y_center + circle_radius],
                          outline="red", fill="red")
-            draw.text((x_center - 11, y_center - 16), note, fill="white",
+            draw.text((x_center - 11, y_center - 16), letter, fill="white",
                       font=font)
 
+        previous_note = note
+
     # Save the image
-    image.save("piano_keyboard.jpg")
-    image.show()
+    image.save(f"{user_id}_keyboard.jpg")
+    # image.show()
 
-
-if __name__ == "__main__":
-    draw_keyboard(['F', 'D#'])
+# if __name__ == "__main__":
+#     draw_keyboard(user_id, ['B', 'C#', 'D', 'E', 'F#', 'G', 'A'])

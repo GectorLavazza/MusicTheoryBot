@@ -2,8 +2,8 @@ from markups import scale_markup, intervals_markup, chords_markup
 
 API_TOKEN = 'token'
 
-NOTES = ['C', 'C#\Db', 'D', 'D#\Eb', 'E', 'F',
-         'F#\Gb', 'G', 'G#\Ab', 'A', 'A#\Bb', 'B\Cb']
+NOTES = ['C', 'C#\\Db', 'D', 'D#\\Eb', 'E', 'F',
+         'F#\\Gb', 'G', 'G#\\Ab', 'A', 'A#\\Bb', 'B\\Cb']
 
 SCALES = {
     'Major': [2, 2, 1, 2, 2, 2, 1],

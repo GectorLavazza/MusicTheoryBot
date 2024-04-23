@@ -9,6 +9,7 @@ from functions import *
 from variables import *
 from markups import *
 from pitch_shift import *
+from image_draw import *
 
 bot = AsyncTeleBot(API_TOKEN)
 
@@ -23,7 +24,7 @@ async def send_welcome(message):
     user_id = str(message.from_user.id)
 
     users[user_id] = {'last_messages': [],
-                      'last_message': '',
+                      'last_message': [],
                       'destination': '',
                       'current_note': '',
                       'current_scale': '',
@@ -44,7 +45,8 @@ async def send_welcome(message):
     await bot.send_message(chat_id, """\
 Hi there, I am MusicTheoryBot 🎶
 I am here to help you with music theory!
-Maybe you want me to build a scale or give you some basic information. Whatever you want!\
+Maybe you want me to build a scale or give you some basic information. 
+Whatever you want!\n\nCheck news about the bot here: https://t.me/music_theory_helper_bot_news
 """, reply_markup=start_markup)
 
 
@@ -79,7 +81,7 @@ async def main_callback_handler(call):
                                          "*Choose from the menu:*",
                                          reply_markup=main_markup,
                                          parse_mode="Markdown")
-        users[user_id]['last_message'] = message.message_id
+        users[user_id]['last_message'] = [message.message_id]
 
         users[user_id]['last_messages'].append(users[user_id]['last_message'])
 
@@ -90,12 +92,14 @@ async def back_callback_handler(call):
     user_id = str(call.from_user.id)
     users[user_id]['exercising'] = False
 
-    if call.message.id != users[user_id]['last_message']:
+    if call.message.id not in users[user_id]['last_message']:
         await bot.answer_callback_query(call.id, "Can't go back")
     else:
         await bot.answer_callback_query(call.id, "Back")
-        await bot.delete_message(chat_id,
-                                 users[user_id]['last_message'])
+
+        for message in users[user_id]['last_message']:
+            await bot.delete_message(chat_id, message)
+
         users[user_id]['last_messages'].pop(-1)
         users[user_id]['last_message'] = (
             users)[user_id]['last_messages'][-1]
@@ -115,7 +119,7 @@ async def scale_callback_handler(call):
                                      "Let's build a scale. In what key?",
                                      reply_markup=notes_markup,
                                      parse_mode="Markdown")
-    users[user_id]['last_message'] = message.message_id
+    users[user_id]['last_message'] = [message.message_id]
 
     users[user_id]['last_messages'].append(users[user_id]['last_message'])
 
@@ -132,7 +136,7 @@ async def intervals_callback_handler(call):
                                      "Let's build an interval. From what note?",
                                      reply_markup=notes_markup,
                                      parse_mode="Markdown")
-    users[user_id]['last_message'] = message.message_id
+    users[user_id]['last_message'] = [message.message_id]
 
     users[user_id]['last_messages'].append(users[user_id]['last_message'])
 
@@ -149,7 +153,7 @@ async def chords_callback_handler(call):
                                      "Let's build a chord. From what note?",
                                      reply_markup=notes_markup,
                                      parse_mode="Markdown")
-    users[user_id]['last_message'] = message.message_id
+    users[user_id]['last_message'] = [message.message_id]
 
     users[user_id]['last_messages'].append(users[user_id]['last_message'])
 
@@ -167,7 +171,7 @@ async def training_callback_handler(call):
                                      reply_markup=training_markup,
                                      parse_mode="Markdown")
 
-    users[user_id]['last_message'] = message.message_id
+    users[user_id]['last_message'] = [message.message_id]
 
     users[user_id]['last_messages'].append(users[user_id]['last_message'])
 
@@ -196,7 +200,7 @@ async def notes_callback_handler(call):
                                                  'destination']][
                                              'markup'],
                                          parse_mode="Markdown")
-        users[user_id]['last_message'] = message.message_id
+        users[user_id]['last_message'] = [message.message_id]
 
         users[user_id]['last_messages'].append(users[user_id]['last_message'])
 
@@ -222,8 +226,12 @@ async def scales_building_callback_handler(call):
     users[user_id]['exercising'] = False
 
     users[user_id]["current_scale"] = call.data
-    res = '\n'.join(get_scale(users[user_id]["current_note"],
-                              users[user_id]["current_scale"]))
+
+    scale = get_scale(users[user_id]["current_note"],
+                      users[user_id]["current_scale"])
+    draw_keyboard(user_id, scale)
+    res = '\n'.join(add_roman(scale))
+
     songs_text = ''
     markup = finish_markup
 
@@ -253,9 +261,13 @@ async def scales_building_callback_handler(call):
                                        f'{users[user_id]["current_scale"]}_ scale:\n\n{res}' + songs_text,
                                        parse_mode="Markdown",
                                        reply_markup=markup)
-        users[user_id]['last_message'] = message.message_id
 
-        users[user_id]['last_messages'].append(users[user_id]['last_message'])
+    with open(f'{user_id}_keyboard.jpg', "rb") as photo_file:
+        photo = await bot.send_photo(chat_id, photo_file)
+
+    users[user_id]['last_message'] = [message.message_id, photo.message_id]
+
+    users[user_id]['last_messages'].append(users[user_id]['last_message'])
 
 
 @bot.callback_query_handler(func=lambda call: call.data in INTERVALS)
@@ -273,6 +285,7 @@ async def intervals_building_callback_handler(call):
 
         res = get_interval(users[user_id]["current_note"],
                            users[user_id]["current_interval"])
+        draw_keyboard(user_id, [users[user_id]["current_note"], res])
 
         interval_shift(INTERVALS_TO_FILES[users[user_id]["current_interval"]],
                        NOTES.index(users[user_id]["current_note"]), user_id)
@@ -282,7 +295,11 @@ async def intervals_building_callback_handler(call):
                                            f'_{users[user_id]["current_interval"]} of {users[user_id]["current_note"]}_ is *{res}*',
                                            parse_mode="Markdown",
                                            reply_markup=finish_markup)
-            users[user_id]['last_message'] = message.message_id
+
+        with open(f'{user_id}_keyboard.jpg', "rb") as photo_file:
+            photo = await bot.send_photo(chat_id, photo_file)
+
+        users[user_id]['last_message'] = [message.message_id, photo.message_id]
 
         users[user_id]['last_messages'].append(users[user_id]['last_message'])
 
@@ -317,11 +334,13 @@ async def chords_building_callback_handler(call):
                                          f'OK. Any additions?',
                                          parse_mode="Markdown",
                                          reply_markup=chords_additions_markup)
-        users[user_id]['last_message'] = message.message_id
+        users[user_id]['last_message'] = [message.message_id]
 
     else:
-        res = get_chord(root=users[user_id]["current_note"],
-                        chord=users[user_id]["current_chord"])
+        chord = get_chord(root=users[user_id]["current_note"],
+                          chord=users[user_id]["current_chord"])
+        draw_keyboard(user_id, chord)
+        res = ' – '.join(chord)
 
         get_shifted_chord(users[user_id]["current_note"],
                           users[user_id]["current_chord"], user_id)
@@ -333,7 +352,11 @@ async def chords_building_callback_handler(call):
                                            f' chord:\n*{res}*',
                                            parse_mode="Markdown",
                                            reply_markup=finish_markup)
-            users[user_id]['last_message'] = message.message_id
+
+        with open(f'{user_id}_keyboard.jpg', "rb") as photo_file:
+            photo = await bot.send_photo(chat_id, photo_file)
+
+    users[user_id]['last_message'] = [message.message_id, photo.message_id]
 
     users[user_id]['last_messages'].append(users[user_id]['last_message'])
 
@@ -359,9 +382,11 @@ async def chord_additions_building_callback_handler(call):
     await bot.answer_callback_query(call.id,
                                     users[user_id]["current_addition"])
 
-    res = get_chord(root=users[user_id]['current_note'],
-                    chord=users[user_id]['current_chord'],
-                    addition=users[user_id]["current_addition"])
+    chord = get_chord(root=users[user_id]['current_note'],
+                      chord=users[user_id]['current_chord'],
+                      addition=users[user_id]["current_addition"])
+    res = ' – '.join(chord)
+    draw_keyboard(user_id, chord)
 
     get_shifted_chord(users[user_id]["current_note"],
                       users[user_id]["current_chord"], user_id,
@@ -374,7 +399,11 @@ async def chord_additions_building_callback_handler(call):
                                        f'{addition_sign}_ chord:\n*{res}*',
                                        parse_mode="Markdown",
                                        reply_markup=finish_markup)
-        users[user_id]['last_message'] = message.message_id
+
+    with open(f'{user_id}_keyboard.jpg', "rb") as photo_file:
+        photo = await bot.send_photo(chat_id, photo_file)
+
+    users[user_id]['last_message'] = [message.message_id, photo.message_id]
 
     users[user_id]['last_messages'].append(users[user_id]['last_message'])
 
@@ -411,7 +440,7 @@ async def more_callback_handler(call):
     message = await bot.send_message(chat_id, songs_text,
                                      parse_mode="Markdown",
                                      reply_markup=scale_finish_markup)
-    users[user_id]['last_message'] = message.message_id
+    users[user_id]['last_message'] = [message.message_id]
 
     users[user_id]['last_messages'].append(users[user_id]['last_message'])
 
@@ -574,9 +603,17 @@ async def intervals_training_callback_handler(call):
 
 if __name__ == "__main__":
     try:
+
+        types = ['note', 'scale', 'chord', 'interval', 'keyboard']
+
         for user in users.keys():
-            for type in ['note', 'scale', 'chord', 'interval']:
-                filename = f'{user}_{type}.mp3'
+            for type in types:
+
+                if types.index(type) <= 3:
+                    filename = f'{user}_{type}.mp3'
+                elif type == 'keyboard':
+                    filename = f'{user}_{type}.jpg'
+
                 if os.path.exists(filename):
                     os.remove(filename)
                     print(f"File '{filename}' deleted successfully.")
