@@ -1,7 +1,5 @@
 # MusicTheoryBot  
-## Creators
 Asynchronous Telegram bot by ***pavlen5kiy***  
-README by ***pavlen5kiy***
   
 ## Description
 ***MusicTheoryBot*** is a **Telegram bot** that was made to help musicians.   
