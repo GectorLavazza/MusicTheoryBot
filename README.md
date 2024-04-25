@@ -1,12 +1,12 @@
 # MusicTheoryBot  
 ## Creators
-Asynchronous Telegram bot by ***pavlen5kiy, BrArtemGit, Bebront***  
+Asynchronous Telegram bot by ***pavlen5kiy***  
 README by ***pavlen5kiy***
   
 ## Description
 ***MusicTheoryBot*** is a **Telegram bot** that was made to help musicians.   
 It can build all *intervals*, lots of different *chords* and 6 *scales*! Everything goes with special audio; scales go with songs examples.   
-Our bot also has great *exercising features*! Maybe practising with our bot will grant you with erfect pitch one day:)  
+My bot also has great *exercising features*! Maybe practising with my bot will grant you with erfect pitch one day:)  
 
 ## Features
 ### Intervals building
@@ -29,6 +29,6 @@ You can practice identifying notes and intervals using our *SpEcIaL* exercises!
 You will get 5 audios with 4 options every. Try to choose the right option!  
 *Btw my highest score is 5\5 (my lowest is 0\5)*
 
-#### Enjoy our bot!
+#### Enjoy my bot!
   
 Project deployed on https://www.pythonanywhere.com
