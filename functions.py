@@ -1,8 +1,8 @@
 import csv
 import random
-from pprint import pprint
 
 from variables import *
+from songs_urls import search_song
 
 
 def add_roman(scale):
@@ -61,8 +61,13 @@ def get_songs(filename='dataset.csv', amount=1, key='0', mode='0'):
 
         data = sorted(reader, key=lambda el: el[5])[:-1][::-1]
 
-        possible_songs = [f'_{row[2]}_ – _{row[4]}_' for row in data if row[10] == key and row[12] == mode]
+        possible_songs = [(row[2], row[4]) for row in data if row[10] == key and row[12] == mode]
 
-        res = random.choices(possible_songs, k=amount)
+        songs = random.choices(possible_songs, k=amount)
+        res = []
+        for song, artist in songs:
+            # url = search_song(song, artist)
+            # res.append(f'[{song} - {artist}]({url})')
+            res.append(f'_{song} - {artist}_')
 
         return res

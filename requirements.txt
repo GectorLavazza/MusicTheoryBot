@@ -1,4 +1,5 @@
 telebot
 librosa
 soundfile
-aiohttp
+pillow
+roman

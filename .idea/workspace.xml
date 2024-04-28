@@ -4,10 +4,46 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4fe4d185-cdb0-4e2c-a9c4-8a651c1b29be" name="Changes" comment="Developing images">
+    <list default="true" id="4fe4d185-cdb0-4e2c-a9c4-8a651c1b29be" name="Changes" comment="Images made">
+      <change afterPath="$PROJECT_DIR$/songs_urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/aug.mp3" beforeDir="false" afterPath="$PROJECT_DIR$/data/piano/aug.mp3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/blues_scale.mp3" beforeDir="false" afterPath="$PROJECT_DIR$/data/piano/blues_scale.mp3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/c_note.mp3" beforeDir="false" afterPath="$PROJECT_DIR$/data/piano/c_note.mp3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/dim.mp3" beforeDir="false" afterPath="$PROJECT_DIR$/data/piano/dim.mp3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/dorian_scale.mp3" beforeDir="false" afterPath="$PROJECT_DIR$/data/piano/dorian_scale.mp3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/fifth.mp3" beforeDir="false" afterPath="$PROJECT_DIR$/data/piano/fifth.mp3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/fourth.mp3" beforeDir="false" afterPath="$PROJECT_DIR$/data/piano/fourth.mp3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/maj.mp3" beforeDir="false" afterPath="$PROJECT_DIR$/data/piano/maj.mp3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/maj_6.mp3" beforeDir="false" afterPath="$PROJECT_DIR$/data/piano/maj_6.mp3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/maj_7.mp3" beforeDir="false" afterPath="$PROJECT_DIR$/data/piano/maj_7.mp3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/maj_maj6.mp3" beforeDir="false" afterPath="$PROJECT_DIR$/data/piano/maj_maj6.mp3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/maj_maj7.mp3" beforeDir="false" afterPath="$PROJECT_DIR$/data/piano/maj_maj7.mp3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/maj_sec.mp3" beforeDir="false" afterPath="$PROJECT_DIR$/data/piano/maj_sec.mp3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/maj_seventh.mp3" beforeDir="false" afterPath="$PROJECT_DIR$/data/piano/maj_seventh.mp3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/maj_sixth.mp3" beforeDir="false" afterPath="$PROJECT_DIR$/data/piano/maj_sixth.mp3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/maj_third.mp3" beforeDir="false" afterPath="$PROJECT_DIR$/data/piano/maj_third.mp3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/major_pentatonic_scale.mp3" beforeDir="false" afterPath="$PROJECT_DIR$/data/piano/major_pentatonic_scale.mp3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/major_scale.mp3" beforeDir="false" afterPath="$PROJECT_DIR$/data/piano/major_scale.mp3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/min.mp3" beforeDir="false" afterPath="$PROJECT_DIR$/data/piano/min.mp3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/min_6.mp3" beforeDir="false" afterPath="$PROJECT_DIR$/data/piano/min_6.mp3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/min_7.mp3" beforeDir="false" afterPath="$PROJECT_DIR$/data/piano/min_7.mp3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/min_maj6.mp3" beforeDir="false" afterPath="$PROJECT_DIR$/data/piano/min_maj6.mp3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/min_maj7.mp3" beforeDir="false" afterPath="$PROJECT_DIR$/data/piano/min_maj7.mp3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/min_sec.mp3" beforeDir="false" afterPath="$PROJECT_DIR$/data/piano/min_sec.mp3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/min_seventh.mp3" beforeDir="false" afterPath="$PROJECT_DIR$/data/piano/min_seventh.mp3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/min_sixth.mp3" beforeDir="false" afterPath="$PROJECT_DIR$/data/piano/min_sixth.mp3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/min_third.mp3" beforeDir="false" afterPath="$PROJECT_DIR$/data/piano/min_third.mp3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/minor_pentatonic_scale.mp3" beforeDir="false" afterPath="$PROJECT_DIR$/data/piano/minor_pentatonic_scale.mp3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/minor_scale.mp3" beforeDir="false" afterPath="$PROJECT_DIR$/data/piano/minor_scale.mp3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/octave.mp3" beforeDir="false" afterPath="$PROJECT_DIR$/data/piano/octave.mp3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/tritone.mp3" beforeDir="false" afterPath="$PROJECT_DIR$/data/piano/tritone.mp3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset.csv" beforeDir="false" afterPath="$PROJECT_DIR$/dataset.csv" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/functions.py" beforeDir="false" afterPath="$PROJECT_DIR$/functions.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/image_draw.py" beforeDir="false" afterPath="$PROJECT_DIR$/image_draw.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/markups.py" beforeDir="false" afterPath="$PROJECT_DIR$/markups.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pitch_shift.py" beforeDir="false" afterPath="$PROJECT_DIR$/pitch_shift.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server.py" beforeDir="false" afterPath="$PROJECT_DIR$/server.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/users.json" beforeDir="false" afterPath="$PROJECT_DIR$/users.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/variables.py" beforeDir="false" afterPath="$PROJECT_DIR$/variables.py" afterDir="false" />
@@ -43,31 +79,36 @@
     <option name="sortByType" value="true" />
     <option name="sortKey" value="BY_TYPE" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Python.csv_parser.executor": "Run",
-    "Python.image_draw.executor": "Run",
-    "Python.main.executor": "Run",
-    "Python.notes_and_scales.executor": "Run",
-    "Python.server.executor": "Run",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "master",
-    "last_opened_file_path": "/Users/pavelvolkov/PycharmProjects/webproject/data",
-    "settings.editor.selected.configurable": "com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Python.csv_parser.executor&quot;: &quot;Run&quot;,
+    &quot;Python.draw_guitar.executor&quot;: &quot;Run&quot;,
+    &quot;Python.functions.executor&quot;: &quot;Run&quot;,
+    &quot;Python.image_draw.executor&quot;: &quot;Run&quot;,
+    &quot;Python.main.executor&quot;: &quot;Run&quot;,
+    &quot;Python.notes_and_scales.executor&quot;: &quot;Run&quot;,
+    &quot;Python.server.executor&quot;: &quot;Run&quot;,
+    &quot;Python.songs_urls.executor&quot;: &quot;Run&quot;,
+    &quot;Python.youtube_urls.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/pavelvolkov/PycharmProjects/webproject/data&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/data" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/data" />
+      <recent name="$PROJECT_DIR$/data/piano" />
       <recent name="$PROJECT_DIR$" />
     </key>
   </component>
   <component name="RunManager" selected="Python.server">
-    <configuration name="csv_parser" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="draw_guitar" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="webproject" />
       <option name="ENV_FILES" value="" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -80,7 +121,7 @@
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/csv_parser.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/draw_guitar.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -177,12 +218,35 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <configuration name="songs_urls" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="webproject" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/songs_urls.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.draw_guitar" />
         <item itemvalue="Python.image_draw" />
-        <item itemvalue="Python.pitch_shift" />
-        <item itemvalue="Python.csv_parser" />
+        <item itemvalue="Python.songs_urls" />
         <item itemvalue="Python.functions" />
+        <item itemvalue="Python.pitch_shift" />
       </list>
     </recent_temporary>
   </component>
@@ -306,7 +370,15 @@
       <option name="project" value="LOCAL" />
       <updated>1713886152549</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="Images made">
+      <option name="closed" value="true" />
+      <created>1713890936113</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1713890936114</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -332,17 +404,7 @@
     <MESSAGE value="Ready for Glitch deplpoyment" />
     <MESSAGE value="Bugfix" />
     <MESSAGE value="Developing images" />
-    <option name="LAST_COMMIT_MESSAGE" value="Developing images" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/image_draw.py</url>
-          <line>42</line>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
+    <MESSAGE value="Images made" />
+    <option name="LAST_COMMIT_MESSAGE" value="Images made" />
   </component>
 </project>

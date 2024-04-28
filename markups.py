@@ -9,6 +9,12 @@ intervals_exercise_markup = quick_markup({
     'Main menu 🏠': {'callback_data': 'Main'}
 }, row_width=1)
 
+instrument_markup = quick_markup({
+    'Piano 🎹': {'callback_data': 'piano'},
+    'Guitar 🎸': {'callback_data': 'guitar'},
+    'Main menu 🏠': {'callback_data': 'Main'}
+}, row_width=2)
+
 notes_exercise_markup = quick_markup({
     'Exercise more 💪': {'callback_data': 'Notes hearing'},
     'Main menu 🏠': {'callback_data': 'Main'}

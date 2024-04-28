@@ -2,6 +2,8 @@ from markups import scale_markup, intervals_markup, chords_markup
 
 API_TOKEN = 'token'
 
+CHANNEL_ID = 'https://t.me/music_theory_helper_bot_news'
+
 NOTES = ['C', 'C#\\Db', 'D', 'D#\\Eb', 'E', 'F',
          'F#\\Gb', 'G', 'G#\\Ab', 'A', 'A#\\Bb', 'B\\Cb']
 
