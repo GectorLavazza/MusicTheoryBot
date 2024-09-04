@@ -13,6 +13,13 @@ from image_draw import *
 
 bot = AsyncTeleBot(API_TOKEN)
 
+
+async def ping():
+    while True:
+        print("Pinging server...")
+        await asyncio.sleep(3600)  # Sleep for 1 hour (3600 seconds)
+
+
 with open('users.json') as users_data:
     users = json.load(users_data)
 
@@ -46,7 +53,7 @@ async def send_welcome(message):
     await bot.send_message(chat_id, """\
 Hi there, I am MusicTheoryBot 🎶
 I am here to help you with music theory!
-Maybe you want me to build a scale or give you some basic information. 
+Maybe you want me to build a scale or give you some basic information.
 Whatever you want!\n\nCheck news about the bot here: https://t.me/music_theory_helper_bot_news
 """, reply_markup=start_markup)
 
@@ -661,6 +668,13 @@ async def intervals_training_callback_handler(call):
         users[user_id]['exercising'] = False
 
 
+# Run both tasks concurrently
+async def main():
+    bot_task = asyncio.create_task(bot.polling())
+    ping_task = asyncio.create_task(ping())
+    await asyncio.gather(bot_task, ping_task)
+
+
 if __name__ == "__main__":
     try:
 
@@ -683,7 +697,7 @@ if __name__ == "__main__":
         print(users)
         print('Running...')
 
-        asyncio.run(bot.polling())
+        asyncio.run(main())
 
     except Exception as e:
         print(e)
