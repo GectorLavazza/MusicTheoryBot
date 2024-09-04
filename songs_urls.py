@@ -1,3 +1,8 @@
+'''
+apparently it came out freaking hard thing to do for free,
+everyone wants money, you know. Even I do
+'''
+
 from googleapiclient.discovery import build
 
 # Set up YouTube API
@@ -18,7 +23,6 @@ def search_song(song_title, artist):
     video_id = search_response['items'][0]['id']['videoId']
     video_url = f'https://www.youtube.com/watch?v={video_id}'
     return video_url
-
 
 # video_url = search_song('skullcrusher', 'overkill')
 # print(f'URL for "{song_title}" by {artist}: {video_url}')

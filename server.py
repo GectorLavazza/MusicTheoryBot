@@ -6,10 +6,11 @@ from telebot import *
 from telebot.async_telebot import AsyncTeleBot
 
 from functions import *
-from variables import *
+from settings import *
 from markups import *
 from pitch_shift import *
 from image_draw import *
+from localization import localization
 
 bot = AsyncTeleBot(API_TOKEN)
 
@@ -54,7 +55,7 @@ async def send_welcome(message):
 Hi there, I am MusicTheoryBot 🎶
 I am here to help you with music theory!
 Maybe you want me to build a scale or give you some basic information.
-Whatever you want!\n\nCheck news about the bot here: https://t.me/music_theory_helper_bot_news
+Whatever you want!
 """, reply_markup=start_markup)
 
 
@@ -92,8 +93,8 @@ async def handle_non_command_messages(message):
     if message.text == '@pav1en5kiy':
         await bot.send_message(message.chat.id,
                                "Oh boi, u got me.\n"
-                               "Did ya now I'm an artist too?\n"
-                               "Here: https://t.me/pav1en5kiyMusic")
+                               "Did ya know I'm an artist too?\n"
+                               "Here: https://band.link/szwrI")
     else:
         await bot.send_message(message.chat.id, "Please, send commands only.")
 

@@ -17,30 +17,26 @@ def draw_piano(user_id, notes_list):
     black_key_width = 40
     black_key_height = image_height * 0.6
 
-    # Create a new image with white background
     image = Image.new("RGB",
                       (image_width * 2, image_height * 2),
                       "white")
     draw = ImageDraw.Draw(image)
 
-    # Draw white keys
     for i in range(0, image_width * 2, white_key_width * 2):
         draw.rectangle(
             [i, 0, i + white_key_width * 2, image_height * 2],
             fill="white", outline="black")
 
-    # Draw black keys
     black_key_positions = [60, 140, 300, 380, 460, 620, 700, 860, 940, 1020]
     for pos in black_key_positions:
         draw.rectangle(
             [pos * 2, 0, (pos + black_key_width) * 2, black_key_height * 2],
             fill="black", outline="black")
 
-    # Draw circles with note letters above the keys you choose
     keys = {'C': 0, 'C#\\Db': 1, 'D': 2, 'D#\\Eb': 3, 'E': 4, 'F': 5,
             'F#\\Gb': 6,
             'G': 7, 'G#\\Ab': 8, 'A': 9, 'A#\\Bb': 10,
-            'B\\Cb': 11}  # Map key positions to note letters
+            'B\\Cb': 11}
 
     font_size = 30
     font = ImageFont.truetype("data/arial.ttf", font_size)
@@ -79,14 +75,12 @@ def draw_piano(user_id, notes_list):
 
         previous_note = note
 
-    # Save the image
     image.save(f"{user_id}_instrument.jpg")
 
 
 def draw_guitar(user_id, notes_list):
-    # Calculate image size
-    image_width = 1600  # Double the original width
-    image_height = 400  # Double the original height
+    image_width = 1600
+    image_height = 400
 
     strings = 6
     frets = 11
@@ -95,42 +89,31 @@ def draw_guitar(user_id, notes_list):
     fret_color = 'gray'
     background_color = 'white'
 
-    # Define the mapping of notes_list to fret positions on each string
     note_positions = {
         'E': [0, 5, 9, 2, 7, 0],
         'F': [1, 6, 10, 3, 8, 1],
         'F#\\Gb': [2, 7, 11, 4, 9, 2],
-        # Note: F# and Gb are the same, we'll use F#
         'G': [3, 8, 0, 5, 10, 3],
         'G#\\Ab': [4, 9, 1, 6, 11, 4],
-        # Note: G# and Ab are the same, we'll use G#
         'A': [5, 10, 2, 7, 0, 5],
         'A#\\Bb': [6, 11, 3, 8, 1, 6],
-        # Note: A# and Bb are the same, we'll use A#
         'B\\Cb': [7, 0, 4, 9, 2, 7],
         'C': [8, 1, 5, 10, 3, 8],
         'C#\\Db': [9, 2, 6, 11, 4, 9],
-        # Note: C# and Db are the same, we'll use C#
         'D': [10, 3, 7, 0, 5, 10],
         'D#\\Eb': [11, 4, 8, 1, 6, 11]
-        # Note: D# and Eb are the same, we'll use D#
     }
 
-    # Calculate fret spacing
     fret_spacing = image_width / (frets + 1)
     string_spacing = image_height // (strings + 1)
 
-    # Create a blank image with white background
     img = Image.new('RGB', (image_width, image_height), color=background_color)
 
-    # Create a drawing object
     draw = ImageDraw.Draw(img)
 
-    # Draw guitar frets
     for i in range(frets):
         x = (i + 1) * fret_spacing
         draw.line([(x, 0), (x, image_height)], fill=fret_color, width=2)
-        # Draw Roman numerals representing fret numbers
         font_fret = ImageFont.truetype("data/arial.ttf", 16)
         draw.text((x - fret_spacing / 2 - 3, 10), roman.toRoman(i),
                   fill='black', font=font_fret)
@@ -139,9 +122,7 @@ def draw_guitar(user_id, notes_list):
             draw.text((x - fret_spacing / 2 - 3, 10), roman.toRoman(i + 1),
                       fill='black', font=font_fret)
 
-    # Draw guitar strings and note circles
-    font = ImageFont.truetype("data/arial.ttf",
-                              30)  # Load a font for drawing text
+    font = ImageFont.truetype("data/arial.ttf", 30)
 
     for string_num in range(strings):
 
@@ -157,14 +138,12 @@ def draw_guitar(user_id, notes_list):
             else:
                 circle_color = 'black'
 
-            x = (note_position + 0.5) * fret_spacing  # Adjusted x-coordinate
+            x = (note_position + 0.5) * fret_spacing
 
-            # Draw circle representing the note
-            circle_radius = 26  # Double the original circle radius
+            circle_radius = 26
             draw.ellipse([(x - circle_radius, y - circle_radius),
                           (x + circle_radius, y + circle_radius)],
                          fill=circle_color)
-            # Draw the note letter inside the circle
             if '#' in note:
                 x_offset = 32
             else:
@@ -173,5 +152,4 @@ def draw_guitar(user_id, notes_list):
                       fill='white',
                       font=font)
 
-    # Save the image
     img.save(f'{user_id}_instrument.jpg')

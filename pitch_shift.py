@@ -1,6 +1,6 @@
 import librosa
 import soundfile as sf
-from variables import NOTES
+from settings import NOTES
 
 intervals_files = ['min_sec', 'maj_sec',
                    'min_third', 'maj_third',

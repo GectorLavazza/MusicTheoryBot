@@ -1,7 +1,7 @@
 import csv
 import random
 
-from variables import *
+from settings import *
 from songs_urls import search_song
 
 
