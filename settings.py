@@ -1,6 +1,6 @@
 from markups import scale_markup, intervals_markup, chords_markup
 
-API_TOKEN = '7161683104:AAE28fQCcweX0d2b4ZXG_E8STIuKI7hetDE'
+API_TOKEN = '7161683104:AAE28fQCcweX0d2b4ZXG_E8STIuKI7hetDE'  # this token is invalid
 
 CHANNEL_ID = 'https://t.me/music_theory_helper_bot_news'
 
